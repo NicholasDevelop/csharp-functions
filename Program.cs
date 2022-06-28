@@ -43,8 +43,10 @@ int[] ElevaArrayAlQuadrato(int[] array)
 
     for (int i = 0; i < copiaArray.Length; i++)
     {
-        Console.Write((copiaArray[i] * copiaArray[i]) + ", ");
+        copiaArray[i] = Quadrato(array[i]);
     }
+
+    return copiaArray;
 }
 
 
@@ -59,10 +61,13 @@ int[] defaultArray = { 2, 6, 7, 5, 3, 9 };
 
 int sommaElementiArray(int[] array)
 {
+    int somma = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        return array[i] += array[i];
+        somma += array[i];
     }
+
+    return somma;
 }
 
 void StampaArrayNew(int[] array)
@@ -73,6 +78,7 @@ void StampaArrayNew(int[] array)
     }
 }
 
+/*
 int[] ElevaArrayAlQuadratoNew(int[] array)
 {
     int[] copiaDefaultArray = (int[])array.Clone();
@@ -100,4 +106,40 @@ int sommaElementiArrayQuadratoNew(int[] array)
         int squareTotalElements = sumElements*sumElements;
         return squareTotalElements;
     }
+
 }
+*/
+
+
+
+//Creazione parola palindroma utilizzando 2 array
+
+string parola = Console.ReadLine();
+char[] palindroma = new char[parola.Length];
+
+for (int i = 0; i < parola.Length; i++)
+{
+    palindroma[i] = parola[(parola.Length-1)-i];
+}
+
+bool parolaPalindroma = true;
+
+for (int i = 0; i < parola.Length; i++)
+{
+    if(parola[i] == palindroma[i])
+    {
+        parolaPalindroma = false;
+        break; // i = parola.length;
+    }
+}
+
+if(parolaPalindroma)
+{
+    Console.Write("La parola è palindroma");
+}
+else
+{
+    Console.Write("La parola non è palindroma");
+}
+
+return;
